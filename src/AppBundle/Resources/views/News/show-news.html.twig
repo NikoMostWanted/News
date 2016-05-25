@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show news</title>
+</head>
+<body>
+{% for type in news %}
+    <i>{{ type.id }}</i>
+    <i>Title: {{ type.title }}</i>
+    <i>Text: {{ type.text }}</i><br/>
+{% endfor %}
+</body>
+</html>
