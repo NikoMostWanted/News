@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Show news</title>
-</head>
-<body>
-{% for type in news %}
-    <i>{{ type.id }}</i>
-    <i>Title: {{ type.title }}</i>
-    <i>Text: {{ type.text }}</i><br/>
-{% endfor %}
-</body>
-</html>
+{% extends 'base.html.twig' %}
+{% block title %}Show news{% endblock %}
+{% block navbar %}<li class="active"><a href="#">Public</a></li>{% endblock %}
+{% block body %}
+    {% for type in news %}
+        <i>{{ type.id }}</i>
+        <i>Title: {{ type.title }}</i>
+        <i>Text: {{ type.text }}</i><br/>
+    {% endfor %}
+{% endblock %}

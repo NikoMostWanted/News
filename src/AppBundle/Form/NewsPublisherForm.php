@@ -25,11 +25,14 @@ class NewsPublisherForm extends AbstractType
             ),
                 'required' => true))
             ->add('text', TextareaType::class, array('label' => false, 'attr' => array(
-                'placeholder' => 'Text'
+                'placeholder' => 'Text',
+                'rows' => '10',
+                'style' => 'resize: none;'
             ),
                 'required' => true))
             ->add('Publish', SubmitType::class, array(
-                'label' => 'Publish')
+                'label' => 'Publish',
+                    'attr' => ['class' => 'btn-info'])
             )
         ;
     }
