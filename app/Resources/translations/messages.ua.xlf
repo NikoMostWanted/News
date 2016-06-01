@@ -1,0 +1,56 @@
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0"
+       version="2.0" srcLang="en-US" trgLang="ua-Ua">
+    <file id="f1" original="Graphic Example.psd">
+        <skeleton href="Graphic Example.psd.skl"/>
+        <group id="1">
+            <unit id="1">
+                <segment>
+                    <source>News</source>
+                    <target>Новини</target>
+                </segment>
+            </unit>
+            <unit id="2">
+                <segment>
+                    <source>Show news</source>
+                    <target>Показати новини</target>
+                </segment>
+            </unit>
+            <unit id="3">
+                <segment>
+                    <source>Public news</source>
+                    <target>Опублікувати новини</target>
+                </segment>
+            </unit>
+            <unit id="4">
+                <segment>
+                    <source>List news</source>
+                    <target>Список новин</target>
+                </segment>
+            </unit>
+            <unit id="5">
+                <segment>
+                    <source>Title</source>
+                    <target>Заголовок</target>
+                </segment>
+            </unit>
+            <unit id="6">
+                <segment>
+                    <source>Text</source>
+                    <target>Текст</target>
+                </segment>
+            </unit>
+            <unit id="7">
+                <segment>
+                    <source>Publish</source>
+                    <target>Опублікувати</target>
+                </segment>
+            </unit>
+            <unit id="8">
+                <segment>
+                    <source>Publish new news with id</source>
+                    <target>Опублікована нова новина с id </target>
+                </segment>
+            </unit>
+        </group>
+    </file>
+</xliff>

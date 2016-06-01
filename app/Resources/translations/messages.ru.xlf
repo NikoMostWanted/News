@@ -1,0 +1,62 @@
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0"
+       version="2.0" srcLang="en-US" trgLang="ru-Ru">
+    <file id="f1" original="Graphic Example.psd">
+        <skeleton href="Graphic Example.psd.skl"/>
+        <group id="1">
+            <unit id="1">
+                <segment>
+                    <source>News</source>
+                    <target>Новости</target>
+                </segment>
+            </unit>
+            <unit id="2">
+                <segment>
+                      <source>Show news</source>
+                      <target>Показать новости</target>
+                </segment>
+             </unit>
+            <unit id="3">
+                <segment>
+                       <source>Public news</source>
+                       <target>Опубликовать новости</target>
+                </segment>
+            </unit>
+            <unit id="4">
+                <segment>
+                       <source>List news</source>
+                       <target>Список новости</target>
+                </segment>
+            </unit>
+            <unit id="5">
+                <segment>
+                       <source>Title</source>
+                       <target>Заглавие</target>
+                </segment>
+            </unit>
+            <unit id="6">
+                <segment>
+                       <source>Text</source>
+                       <target>Текст</target>
+                </segment>
+            </unit>
+            <unit id="7">
+                <segment>
+                       <source>Publish</source>
+                       <target>Опубликовать</target>
+                </segment>
+            </unit>
+            <unit id="8">
+                <segment>
+                       <source>Publish new news with id</source>
+                       <target>Опубликована новая новость с id </target>
+                </segment>
+            </unit>
+            <unit id="8">
+                <segment>
+                       <source>The string length must be greater than {{limit}} characters</source>
+                       <target>Длина строки должна быть больше чем {{limit}} символ</target>
+                 </segment>
+            </unit>
+        </group>
+    </file>
+</xliff>

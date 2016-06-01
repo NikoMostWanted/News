@@ -21,7 +21,7 @@ class NewsController extends Controller
 {
 
     /**
-     *@Route("/news/publish", name="Publish")
+     *@Route("/news/publish/{_locale}", name="Publish", requirements={"_locale" = "en|ru|ua"})
      *@Template("AppBundle:News:publish-news.html.twig")
      */
     public function actionPublishNews(Request $request)
@@ -39,7 +39,8 @@ class NewsController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($news_db);
             $em->flush();
-            return new Response('<i>Publish new news with id '.$news_db->getId().'</i>');
+            $translated = $this->get('translator')->trans('Publish new news with id');
+            return new Response('<i>'.$translated.' '.$news_db->getId().'</i>');
 
         }
 
@@ -47,7 +48,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @Route("/news/show", name="Show")
+     * @Route("/news/show/{_locale}", name="Show", requirements={"_locale" = "en|ru|ua"})
      * @Template("AppBundle:News:show-news.html.twig")
      */
     public function actionShowNews()

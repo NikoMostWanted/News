@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
-{% block title %}Publish{% endblock %}
-{% block navbar %}<li class="active"><a href="#">Home</a></li>{% endblock %}
+{% block title %}{% trans %}Public news{% endtrans %}{% endblock %}
+{% block navbar %}<li><p class="navbar-btn"><a class="btn btn-primary" href="{{ url('Show') }}">{% trans %}Show news{% endtrans %}</a></p></li>{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
@@ -9,6 +9,12 @@
                 {% form_theme form 'bootstrap_3_layout.html.twig' %}
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
+                {{ form_widget(form.title, { 'attr': {
+                    'placeholder': 'Title'|trans} }) }}
+                {{ form_widget(form.text, { 'attr': {
+                    'placeholder': 'Text'|trans} }) }}
+                {{ form_widget(form.publish, { 'attr': {
+                    'placeholder': 'Publish'|trans} }) }}
                 {{ form_end(form) }}
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>

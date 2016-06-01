@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
-{% block title %}Show news{% endblock %}
-{% block navbar %}<li class="active"><a href="#">Public</a></li>{% endblock %}
+{% block title %}{% trans %}List news{% endtrans %}{% endblock %}
+{% block navbar %}<li><p class="navbar-btn"><a class="btn btn-success" href="{{ url('Publish') }}">{% trans %}Public news{% endtrans %}</a></p></li>{% endblock %}
 {% block body %}
     {% for type in news %}
         <i>{{ type.id }}</i>
