@@ -8,7 +8,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Form\Comments;
 use AppBundle\Entity\Form\News;
+use AppBundle\Form\CommentsForm;
 use AppBundle\Form\NewsPublisherForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,8 +23,8 @@ class NewsController extends Controller
 {
 
     /**
-     *@Route("/news/publish/{_locale}", name="Publish", requirements={"_locale" = "en|ru|ua"})
-     *@Template("AppBundle:News:publish-news.html.twig")
+     * @Route("/news/publish/{_locale}", name="Publish", requirements={"_locale" = "en|ru|ua"})
+     * @Template("AppBundle:News:publish-news.html.twig")
      */
     public function actionPublishNews(Request $request)
     {
@@ -51,18 +53,58 @@ class NewsController extends Controller
      */
     public function actionShowNews(Request $request)
     {
-        $em    = $this->get('doctrine.orm.entity_manager');
-        $dql   = "SELECT a FROM AppBundle:News a";
+        $em = $this->get('doctrine.orm.entity_manager');
+        $dql = "SELECT a FROM AppBundle:News a";
         $query = $em->createQuery($dql);
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1)/*page number*/,
-            10/*limit per page*/
+            $query,
+            $request->query->getInt('page', 1),
+            10
         );
 
-        // parameters to template
         return array('pagination' => $pagination);
+    }
+
+    /**
+     * @Route("/news/more/{_locale}/{id}", name="MoreInfo", requirements={"_locale" = "en|ru|ua"})
+     * @Template("AppBundle:News:more-info.html.twig")
+     */
+    public function actionMoreInfo($id, Request $request)
+    {
+        $news = $this->getDoctrine()->getRepository("AppBundle:News")
+            ->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p
+    FROM AppBundle:Comments p
+    WHERE p.idNews = :id'
+        )->setParameter('id', $id);
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            10
+        );
+
+        $comments = new Comments();
+        $form = $this->createForm(new CommentsForm(), $comments);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $comments_db = new \AppBundle\Entity\Comments();
+            $comments_db->setText($comments->getText());
+            $comments_db->setName($comments->getName());
+            $comments_db->setIdNews($id);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comments_db);
+            $em->flush();
+            return $this->render('AppBundle:News:comments-success.html.twig');
+        }
+
+        return array('news' => $news, 'comments' => $pagination, 'form' => $form->createView());
     }
 }

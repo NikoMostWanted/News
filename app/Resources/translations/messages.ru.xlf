@@ -57,6 +57,36 @@
                        <target>Назад</target>
                 </segment>
             </unit>
+            <unit id="10">
+                <segment>
+                       <source>Learn more</source>
+                       <target>Узнать больше</target>
+                </segment>
+            </unit>
+            <unit id="11">
+                <segment>
+                       <source>Name</source>
+                       <target>Имя</target>
+                </segment>
+            </unit>
+            <unit id="12">
+                <segment>
+                       <source>Comment</source>
+                       <target>Комментировать</target>
+                </segment>
+            </unit>
+            <unit id="13">
+                <segment>
+                       <source>Success</source>
+                       <target>Успешно</target>
+                </segment>
+            </unit>
+            <unit id="14">
+                <segment>
+                       <source>Comments:</source>
+                       <target>Коментарии:</target>
+                </segment>
+            </unit>
         </group>
     </file>
 </xliff>

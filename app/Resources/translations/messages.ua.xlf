@@ -57,6 +57,36 @@
                     <target>Назад</target>
                 </segment>
             </unit>
+            <unit id="10">
+                <segment>
+                    <source>Learn more</source>
+                    <target>Дізнатися більше</target>
+                </segment>
+            </unit>
+            <unit id="11">
+                <segment>
+                    <source>Name</source>
+                    <target>Им'я</target>
+                </segment>
+            </unit>
+            <unit id="12">
+                 <segment>
+                     <source>Comment</source>
+                     <target>Коментувати</target>
+                 </segment>
+            </unit>
+             <unit id="13">
+                 <segment>
+                     <source>Success</source>
+                     <target>Успішно</target>
+                 </segment>
+             </unit>
+             <unit id="14">
+                 <segment>
+                     <source>Comments:</source>
+                     <target>Коментарі:</target>
+                 </segment>
+             </unit>
         </group>
     </file>
 </xliff>

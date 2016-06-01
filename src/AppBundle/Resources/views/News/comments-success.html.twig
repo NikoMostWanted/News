@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% trans %}Learn more{% endtrans %}{% endblock %}
+{% block navbar %}
+    <li><p class="navbar-btn"><a class="btn btn-info" href="{{ url('Show') }}">{% trans %}Back{% endtrans %}</a></p>
+    </li>{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">{% trans %}Success{% endtrans %}</h1>
+        </div>
+    </div>
+{% endblock %}

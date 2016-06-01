@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% trans %}Learn more{% endtrans %}{% endblock %}
+{% block navbar %}
+    <li><p class="navbar-btn"><a class="btn btn-info" href="{{ url('Show') }}">{% trans %}Back{% endtrans %}</a></p>
+    </li>{% endblock %}
+{% block body %}
+    <div id="wrapper2">
+        <div id="container">
+            <div id="welcome">
+                <h1 class="text-center">{{ news.title }}</h1>
+            </div>
+            <div id="status">
+                <p class="text-center">
+                    {{ news.text }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <label>{% trans %}Comments:{% endtrans %}</label>
+                    {% for article in comments %}
+                        <p class="text-center">{{ article.name }} : {{ article.text }}</p>
+                    {% endfor %}
+
+                <div class="text-center">
+                    {{ knp_pagination_render(comments) }}
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                {% form_theme form 'bootstrap_3_layout.html.twig' %}
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_widget(form.name, { 'attr': {
+                    'placeholder': 'Name'|trans} }) }}
+                {{ form_widget(form.text, { 'attr': {
+                    'placeholder': 'Text'|trans} }) }}
+                {{ form_widget(form.comment, { 'attr': {
+                    'placeholder': 'Comment'|trans} }) }}
+                {{ form_end(form) }}
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+        </div>
+    </div>
+{% endblock %}

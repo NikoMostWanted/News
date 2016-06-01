@@ -36,14 +36,9 @@
                 <ul class="nav navbar-nav navbar-right nav-pills">
                     {% block navbar %}
                     {% endblock %}
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'en'})) }}">English
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'ru'})) }}">Русский</a></li>
-                            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'ua'})) }}">Українська</a></li>
-                        </ul>
-                    </li>
+                    <li><p class="navbar-btn"><a class="btn btn-info" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'en'})) }}">English</a></p>
+                    <li><p class="navbar-btn"><a class="btn btn-primary" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'ru'})) }}">Русский</a></p>
+                    <li><p class="navbar-btn"><a class="btn btn-warning" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : 'ua'})) }}">Українська</a></p>
                 </ul>
             </div>
         </div>
