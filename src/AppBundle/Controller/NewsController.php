@@ -39,9 +39,7 @@ class NewsController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($news_db);
             $em->flush();
-            $translated = $this->get('translator')->trans('Publish new news with id');
-            return new Response('<i>'.$translated.' '.$news_db->getId().'</i>');
-
+            return $this->render('AppBundle:News:publish-news-success.html.twig', array('id' => $news_db->getId()));
         }
 
         return array('form' => $form->createView());
@@ -51,16 +49,20 @@ class NewsController extends Controller
      * @Route("/news/show/{_locale}", name="Show", requirements={"_locale" = "en|ru|ua"})
      * @Template("AppBundle:News:show-news.html.twig")
      */
-    public function actionShowNews()
+    public function actionShowNews(Request $request)
     {
-        $news = $this->getDoctrine()
-            ->getRepository("AppBundle:News")
-            ->findAll();
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM AppBundle:News a";
+        $query = $em->createQuery($dql);
 
-        if (!$news) {
-            return new Response('<i>Not Found</i>');
-        }
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
 
-        return array("news" => $news);
+        // parameters to template
+        return array('pagination' => $pagination);
     }
 }

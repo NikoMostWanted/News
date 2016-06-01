@@ -51,6 +51,12 @@
                     <target>Опублікована нова новина с id </target>
                 </segment>
             </unit>
+            <unit id="9">
+                <segment>
+                    <source>Back</source>
+                    <target>Назад</target>
+                </segment>
+            </unit>
         </group>
     </file>
 </xliff>

@@ -32,7 +32,7 @@ class NewsPublisherForm extends AbstractType
                 'required' => true))
             ->add('publish', SubmitType::class, array(
                 'label' => 'Publish',
-                    'attr' => ['class' => 'btn-info'])
+                    'attr' => ['class' => 'btn-info center-block'])
             )
         ;
     }

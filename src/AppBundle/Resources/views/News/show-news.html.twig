@@ -2,9 +2,28 @@
 {% block title %}{% trans %}List news{% endtrans %}{% endblock %}
 {% block navbar %}<li><p class="navbar-btn"><a class="btn btn-success" href="{{ url('Publish') }}">{% trans %}Public news{% endtrans %}</a></p></li>{% endblock %}
 {% block body %}
-    {% for type in news %}
-        <i>{{ type.id }}</i>
-        <i>Title: {{ type.title }}</i>
-        <i>Text: {{ type.text }}</i><br/>
-    {% endfor %}
+    <div class="count">
+        {{ pagination.getTotalItemCount }}
+    </div>
+    <table>
+        <tr>
+            {# sorting of properties based on query components #}
+            <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+            <th{% if pagination.isSorted('a.id') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'id', 'a.id') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Release', ['a.date', 'a.time']) }}</th>
+        </tr>
+
+        {# table body #}
+        {% for article in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.text  }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}

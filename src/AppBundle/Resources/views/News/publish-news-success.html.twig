@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% trans %}Success{% endtrans %}{% endblock %}
+{% block navbar %}<li><p class="navbar-btn"><a class="btn btn-primary" href="{{ url('Show') }}">{% trans %}Show news{% endtrans %}</a></p></li>{% endblock %}
+{% block body %}
+    <h1 align="center">{% trans %}Publish new news with id {% endtrans %}{{ id }}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-5 col-sm-2 text-center">
+                <div class="btn-group">
+                    <a class="btn btn-success center-block" href="{{ url('Publish') }}">{% trans %}Back{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

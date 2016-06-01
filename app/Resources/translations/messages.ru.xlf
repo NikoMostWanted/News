@@ -51,11 +51,11 @@
                        <target>Опубликована новая новость с id </target>
                 </segment>
             </unit>
-            <unit id="8">
+            <unit id="9">
                 <segment>
-                       <source>The string length must be greater than {{limit}} characters</source>
-                       <target>Длина строки должна быть больше чем {{limit}} символ</target>
-                 </segment>
+                       <source>Back</source>
+                       <target>Назад</target>
+                </segment>
             </unit>
         </group>
     </file>
